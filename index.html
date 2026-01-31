@@ -165,7 +165,7 @@
                 document.getElementById('confirmBtn').innerText = "جاري الإرسال...";
                 document.getElementById('confirmBtn').disabled = true;
 
-                const storageRef = ref(storage, 'receipts/' + Date.now());
+                const storageRef = ref(storage, 'receipts/' + Date.now() + "_" + auth.currentUser.uid);
                 const snapshot = await uploadBytes(storageRef, file);
                 const url = await getDownloadURL(snapshot.ref);
 
